@@ -25,6 +25,6 @@ defmodule Chat do
   end
 
   defp remote_supervisor(recipient) do
-    {Chat.TaskSupervisor, recipient}
+    Application.get_env(:chat, :remote_supervisor).(recipient)
   end
 end
